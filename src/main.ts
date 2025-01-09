@@ -1,6 +1,7 @@
 import { invoke } from "@tauri-apps/api/core";
 //React! 
 //JMenuBar sort of thing on new gamee
+//DO BATCH SOLVE AND BACKEND FIRST!!!!!!
 async function calcParts(){
 
 }
