@@ -7,19 +7,30 @@
     <title>Tauri App</title>
     <script type="module" src="/src/main.ts" defer></script>
   </head>
-
+  !-- OPTIMIZEW HTML !!! !! --!
+  !-- AND CSS !!! !! --!
   <body>
-    <main class="frame">
-      <div class="sideBar">
-        <a href="src/sudoku.html" target="_self">
-          <button id="new">New Game</button>
-        </a>
-        <button id="batch">Batch</button>
-        <button id="puzzles">Puzzles</button>
-        <button id="files">Files</button>
-        <button id="settings">Settings</button>
+    <main>
+      <div class="frame">
+        <div class="sideBar">
+          <a href="src/sudoku.html">
+            <button id="new">New Game</button>
+          </a>
+          <a>
+            <button id="batch">Batch</button>
+          </a>
+          <a>
+          <button id="puzzles">Puzzles</button>
+          </a>
+          <a>
+          <button id="files">Files</button>
+          </a>
+          <a id="settings">
+          <button>Settings</button>
+          </a>
+        </div>
+        <div id="display"></div>
       </div>
-      <div id="display"></div>
     </main>
   </body>
 </html>
