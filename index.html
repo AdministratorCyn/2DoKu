@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tauri App</title>
+    <script type="module" src="/src/main.ts" defer></script>
+  </head>
+
+  <body>
+    <main class="frame">
+      <div class="sideBar">
+        <a href="src/sudoku.html" target="_self">
+          <button id="new">New Game</button>
+        </a>
+        <button id="batch">Batch</button>
+        <button id="puzzles">Puzzles</button>
+        <button id="files">Files</button>
+        <button id="settings">Settings</button>
+      </div>
+      <div id="display"></div>
+    </main>
+  </body>
+</html>
