@@ -5,19 +5,18 @@ body{
     margin: 0px;
 }
 #container {
+    color: white;
     display: grid;
-    grid-template-rows:  auto;
+    grid-template-rows: repeat(6, 1fr);
     justify-content: space-between;
     height: 100vh;
     width: 100vw;
     grid-gap: 5vh;
 }
-#sudoku-grid {
+#showcase {
     display: grid;
     grid-column: 2 / 3;
     grid-row: 3 / 5;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(9, 1fr);
     align-self: center;
     width: 65vh;
     height: 65vh; 
@@ -33,25 +32,38 @@ body{
     cursor: pointer;
     color: white;
 }
+#starts{
+    color: white;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    border: 2px solid white;
+}
 #techniques{
     width: 20vw;
-    height: 85vh;
     border: 2px solid white;
     grid-column: 1 / 2;
     grid-row: 2 / 6;
     margin-left: 5px;
 }
-#showcase{
+#benchmark{
     width: 20vw;
-    height: 85vh;
     border: 2px solid white;
     grid-column: 3 / 4;
     grid-row: 2 / 6;
     margin-right: 5px;
 }
-#benchmark{
-
-}
 #console{
-
+    grid-row:  5 / 7;
+    border: 2px solid white;
+    margin-bottom: 5px;
+}
+#back{
+    width:fit-content;
+    height: fit-content;
+    border: 2px solid white;
+    color: white;
+}
+#bAnch{
+    width: fit-content;
+    height: fit-content;
 }
