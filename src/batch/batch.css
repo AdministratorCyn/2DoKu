@@ -1,0 +1,57 @@
+*{
+    background-color: black;
+}
+body{
+    margin: 0px;
+}
+#container {
+    display: grid;
+    grid-template-rows:  auto;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+    grid-gap: 5vh;
+}
+#sudoku-grid {
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: 3 / 5;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    align-self: center;
+    width: 65vh;
+    height: 65vh; 
+    border: 2px solid white;
+}
+
+.cell {
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    cursor: pointer;
+    color: white;
+}
+#techniques{
+    width: 20vw;
+    height: 85vh;
+    border: 2px solid white;
+    grid-column: 1 / 2;
+    grid-row: 2 / 6;
+    margin-left: 5px;
+}
+#showcase{
+    width: 20vw;
+    height: 85vh;
+    border: 2px solid white;
+    grid-column: 3 / 4;
+    grid-row: 2 / 6;
+    margin-right: 5px;
+}
+#benchmark{
+
+}
+#console{
+
+}

@@ -70,7 +70,7 @@ a#recent{
   margin-right: 8%;
   grid-column: 3 / 4;
 }
-.display {
+#display {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;

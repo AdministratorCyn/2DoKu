@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="/src/Main/styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tauri App</title>
-    <script type="module" src="/src/main.ts" defer></script>
+    <script type="module" src="/src/Main/main.ts" defer></script>
   </head>
   !-- OPTIMIZEW HTML !!! !! --!
   !-- AND CSS !!! !! --!
@@ -13,10 +13,10 @@
     <main>
       <div class="frame">
         <div class="sideBar">
-          <a href="src/sudoku.html">
+          <a href="src/Sudoku/sudoku.html">
             <button id="new">New Game</button>
           </a>
-          <a>
+          <a href="src/batch/batch.html">
             <button id="batch">Batch</button>
           </a>
           <a>
@@ -30,8 +30,8 @@
           </a>
         </div>
         <div id="display">
-          <a href="src/sudoku.html" id="recent">
-            <img src="src/example.png" alt="example" class="dontSquish"/>
+          <a href="src/Sudoku/sudoku.html" id="recent">
+            <img src="src/Main/example.png" alt="example" class="dontSquish"/>
           </a>
           <a id="histAnchor">
             <button id="history">History</button>
