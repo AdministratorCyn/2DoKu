@@ -4,7 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const button = document.getElementById("starts");
   button?.addEventListener("click", async () => {
     try {
-      invoke('greet', { name: 'help' }).then((response) => button.innerHTML = response as string);
+      let start = new Date().getMilliseconds();
+      const serverTime = await invoke('count');
+      let end = new Date().getMilliseconds();
+      button.innerHTML = serverTime + " ms server only, " + (end - start) + "ms total";
     } catch (error) {
       console.error('Error invoking greet:', error);
     }
