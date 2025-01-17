@@ -32,7 +32,7 @@ body{
     cursor: pointer;
     color: white;
 }
-#starts{
+#start{
     color: white;
     grid-row: 2 / 3;
     grid-column: 2 / 3;
