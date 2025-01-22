@@ -51,19 +51,21 @@ impl Sudoku {
             else {
                 if count > 1 {
                     count = 0;
-                    i = i / 9 * 9 + 8;
+                    i = i / 9 * 9 + 8; //happening on %= 0
                 }
-                else if self.cand_grid[i / 81][i % 81] {
-                    count += 1;
-                }
-                else if i % 9 == 8 && count != 1 {
-                    count = 0;
-                }
-                else if i % 9 == 8 {
-                    for j in 0..9 {
-                        if self.cand_grid[i / 81][i % 81 - 8 + j] {
-                            self.char_grid[i / 81][i % 81 / 9] = (j + 1) as i8;
-                            return;
+                else {
+                    if self.cand_grid[i / 81][i % 81] {
+                        count += 1;
+                    }
+                    if i % 9 == 8 && count != 1 {
+                        count = 0;
+                    }
+                    else if i % 9 == 8{
+                        for j in 0..9 {
+                            if self.cand_grid[i / 81][i % 81 - 8 + j] {
+                                self.char_grid[i / 81][i % 81 / 9] = (j + 1) as i8;
+                                return;
+                            }
                         }
                     }
                 }
@@ -84,11 +86,11 @@ struct Output{
 #[tauri::command]
 fn solve(grid: &str) -> Output {
     let mut grid = Sudoku::new(grid);
-    println!("{:?}", grid.char_grid);
     let start = Instant::now();
     for _ in 0..100 {
         grid.ns();
-        grid.autocand(); //autocand is 5981ms avg alone, 91.7% of total time
+        grid.autocand();
+         //autocand is 5981ms avg alone, 91.7% of total time
     }
     let time = start.elapsed().as_micros().to_string();
     return Output{time, puzzle: grid}; //struct for both grids
