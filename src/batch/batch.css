@@ -14,6 +14,8 @@ body{
     grid-gap: 5vh;
 }
 #showcase {
+    margin: 0px;
+    padding: 0px;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
@@ -59,20 +61,33 @@ body{
     width: fit-content;
     height: fit-content;
 }
-.sc {
-    width: 100%;
-    height: 100%;
-}
 .ca {
+    margin: 0px;
+    padding: 0px;
+    border: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
 .cand {
-    border: 1px solid gray;
+    border: none;
     padding: 0px;
     width: 100%;
     height: 100%;
+    color: #c0b5cb;
+    font-size: 1.25vw;
+}
+.sc {
+    border: none;
+    margin: 0px;
+    padding: 0px;
     color: white;
-    font-size: 1.2vw;
+    font-size: 3.7vw;
+    width: 100%;
+    height: 100%;
+}
+.cell {
+    border: 0px;
+    padding: 0px;
+    border: 1px solid gray;
 }
