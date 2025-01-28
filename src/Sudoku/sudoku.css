@@ -1,9 +1,25 @@
 *{
     background-color: black;
     color: white;
+    overflow-y: hidden;
+    font-family: 'JetBrains Mono', monospace;
 }
 body{
     margin: 0px;
+}
+img { 
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+.tech {
+    align-content: center;
+    justify-content: center;
 }
 #container {
     color: white;
@@ -14,7 +30,14 @@ body{
     width: 100vw;
     grid-gap: 5vh;
 }
+#progress{
+    color: white;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    border: 2px solid white;
+}
 #sudoku {
+    
     margin: 0px;
     padding: 0px;
     display: grid;
@@ -26,6 +49,26 @@ body{
     width: 65vh;
     height: 65vh; 
     border: 2px solid white;
+}
+#techniques{
+    overflow-y: scroll;
+    width: 20vw;
+    border: 2px solid white;
+    grid-column: 1 / 2;
+    grid-row: 2 / 6;
+    margin-left: 5px;
+}
+#console{
+    grid-row:  5 / 7;
+    border: 2px solid white;
+    margin-bottom: 5px;
+}
+#sidebar {
+    width: 20vw;
+    border: 2px solid white;
+    grid-column: 3 / 4;
+    grid-row: 2 / 6;
+    margin-right: 5px;
 }
 .ca {
     margin: 0px;
@@ -56,4 +99,18 @@ body{
     border: 0px;
     padding: 0px;
     border: 1px solid gray;
+}
+.folder {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+.subfolder {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    font-size: 1.2vw;
+    margin-left: 2vw;
 }

@@ -13,16 +13,55 @@ for (let i = 0; i < 9; i++) {
     }
   }
 
+let techList: [string, [string, boolean][]][] = [["Subsets", [["Naked Single", true], ["Hidden Single", false], ["Naked Pair", true]]], ["Fish", [["X-Wing", true], ["Swordfish", true], ["Jellyfish", true]]]];
+
   
+//i should add an actual sidebar to all pages
 document.addEventListener('DOMContentLoaded', () => {
     customElements.define('puz-zel', Sudoku);
     customElements.define('ce-ll', Cell);
+    customElements.define('pro-gress', ProgressBar);
     const sudokuElement = document.getElementById('sudoku');
+    const progressContainer = document.getElementById('progress');
+    const progressBar = new ProgressBar();
+    progressContainer?.appendChild(progressBar);
+    progressBar.update(90);
     if (sudokuElement) {
       Object.setPrototypeOf(sudokuElement, Sudoku.prototype);
       (sudokuElement as any).constructor = Sudoku;
     }
     sudokuElement ? (sudokuElement as Sudoku).initComp() : null;
+
+    //have to write open/close
+    const toggle = document.getElementById('techniques');
+
+    for (let type in techList) {
+      const button = document.createElement('button');
+      button.classList.add('folder');
+      const file = document.createElement('img');
+      file.src = '/src/assets/folder_icon.png';
+      file.style.resize = 'both';
+      file.style.width = '2vw';
+      file.alt = 'Folder Icon';
+      button.style.cursor = 'pointer';
+      button?.appendChild(file);
+      const text = document.createElement('a');
+      text.innerHTML = `- ${techList[type][0]}`;
+      button.addEventListener('click', () => {
+        for (let tech of techList[type][1]) {
+          const button = document.createElement('button');
+          button.classList.add('subfolder');
+          button.style.cursor = 'pointer';
+          button.appendChild(file.cloneNode());
+          const text = document.createElement('a');
+            text.innerHTML = `- ${tech[0]}`
+          button.appendChild(text);
+          toggle?.appendChild(button); //different icon for files and folders
+        }
+      });
+      button.appendChild(text);
+      toggle?.appendChild(button);
+    }
 });
 class Cell extends HTMLElement {
     constructor() {
@@ -43,7 +82,12 @@ class Cell extends HTMLElement {
           }
         });
       }
-      button.innerHTML = char_grid[i][j].toString();
+      const img = document.createElement('img');
+        img.src = `/src/assets/${char_grid[i][j]}.png`;
+        img.alt = `${char_grid[i][j]}`;
+        img.style.width = '100%';
+        img.style.height = '100%';
+        button.appendChild(img);
       this.appendChild(button);
     }
     usc(i: number, j: number): void {
@@ -106,6 +150,18 @@ class Cell extends HTMLElement {
           this.appendChild(cell as Cell);
         }
       }
+    }
+  }
+  class ProgressBar extends HTMLElement {
+    private progress: number;
+    constructor() {
+      super();
+      this.progress = 19;
+    }
+    update(percent: number) {
+      this.progress = percent;
+      this.style.width = `${this.progress}%`;
+      this.style.color = 'green';
     }
   }
 
