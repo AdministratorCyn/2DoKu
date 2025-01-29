@@ -105,6 +105,7 @@ img {
     display: flex;
     align-items: center;
     justify-items: center;
+    width: 100%;
 }
 .subfolder {
     border: 2px solid black;
@@ -113,4 +114,15 @@ img {
     justify-items: center;
     font-size: 1.2vw;
     margin-left: 2vw;
+    width: (100% - 2vw);
+}
+.progress-bar {
+    color: green;
+}
+a {
+    font-size: 1.2vw;
+}
+.noResize {
+    resize: none;
+    overflow: hidden;
 }
