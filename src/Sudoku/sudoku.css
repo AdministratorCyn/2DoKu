@@ -125,4 +125,5 @@ a {
 .noResize {
     resize: none;
     overflow: hidden;
+    pointer-events: none;
 }
