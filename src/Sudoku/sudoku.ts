@@ -187,7 +187,7 @@ class Cell extends HTMLElement {
               const progress = (filledCells / 81) * 100;
               progressBar.setProgress(progress);
             }
-            sudoku.autocand();
+            sudoku.autocand(); 
             
           }
         });
