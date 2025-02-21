@@ -1,5 +1,6 @@
 import { image } from "@tauri-apps/api";
-//import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api";
+const invoke = window.__TAURI__.core.invoke;
 //add titled border to console
 
 document.addEventListener('contextmenu', (event) => {
@@ -50,12 +51,12 @@ class Sudoku {
 }
 
 let sudoku = new Sudoku(temp_grid);
-
+let sudokuElement: SudokuGrid;
 //i should add an actual sidebar to all pages
 document.addEventListener('DOMContentLoaded', () => {
     customElements.define('puz-zel', SudokuGrid);
     customElements.define('ce-ll', Cell);
-    const sudokuElement = document.getElementById('sudoku');
+    sudokuElement = document.getElementById('sudoku');
     if (sudokuElement) {
       Object.setPrototypeOf(sudokuElement, SudokuGrid.prototype);
       (sudokuElement as any).constructor = Sudoku;
@@ -124,6 +125,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const filledCells = sudoku.char_grid.flat().filter(num => num !== 0).length;
     const progress = (filledCells / 81) * 100;
     (progressBarElement as ProgressBar).setProgress(progress);
+  }
+});
+document.addEventListener('keydown', async(event) => {
+  if (event.ctrlKey && event.key === 'n') {
+    const start = new Date().getMilliseconds();
+    const response = await invoke('generate'); 
+    let end = new Date().getMilliseconds();
+    alert('Generate! \n(not done)\n' + (end - start) + " ms"); //make this a custom popup with textures
+    sudoku.char_grid = response.char_grid;
+    sudoku.cand_grid = sudoku.autocand();
+    sudokuElement.clear();
+    sudokuElement.initComp();
   }
 });
 class Cell extends HTMLElement {
@@ -235,6 +248,11 @@ class Cell extends HTMLElement {
           }
           this.appendChild(cell);
         }
+      }
+    }
+    clear() {
+      while (this.firstChild) {
+        this.removeChild(this.firstChild);
       }
     }
   }

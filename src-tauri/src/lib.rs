@@ -6,6 +6,9 @@ struct Sudoku{
 }
 
 impl Sudoku {
+    fn generate() -> Self{
+        Self::new(".............1...................................................................")
+    }
     fn new(str: &str) -> Self {
         let mut char_grid = [[0; 9]; 9];
         for (i, c) in str.chars().enumerate() {
@@ -96,11 +99,16 @@ fn solve(grid: &str) -> Output {
     return Output{time, puzzle: grid}; //struct for both grids
 }
 
+#[tauri::command]
+fn generate() -> Sudoku {
+    Sudoku::generate()
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
-        .invoke_handler(tauri::generate_handler![solve])    
+        .invoke_handler(tauri::generate_handler![solve, generate])    
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

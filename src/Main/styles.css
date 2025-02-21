@@ -62,7 +62,7 @@ a:not(.dontSquish){
 }
 a#recent{
   height: 40vw;
-  width:fit-content;
+  width: 40vw;
   align-self: start;
   justify-self: end;
   margin-top: 0px;
